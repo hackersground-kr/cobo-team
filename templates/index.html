@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/bootstrap.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/css.css') }}"
+    />
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+  </head>
+  <body class="h-100">
+    <header id="header" class="bg-black">header</header>
+    <div id="body" class="container">
+      <div class="bg-info d-flex justify-content-center">
+        <canvas id="audio-wave" class="row bg-black"></canvas>
+      </div>
+      <div id="settingForm" class="bg-danger">
+        <h1>목소리 성별 선택</h1>
+        <button
+          type="input"
+          class="btn btn-secondary disabled"
+          name="gender"
+          id="button1"
+          onclick="toggleButton(this)"
+          value="남자"
+        >
+          남자
+        </button>
+        <button
+          class="btn btn-secondary"
+          type="input"
+          id="button2"
+          name="gender"
+          onclick="toggleButton(this)"
+          value="여자"
+        >
+          여자
+        </button>
+
+        <h1>인사 시간 선택</h1>
+        <form>
+          <label for="morning">아침</label>
+          <input value="06:00" type="time" id="morning" name="morning" /><br />
+
+          <label for="lunch">점심</label>
+          <input value="12:00" type="time" id="lunch" name="lunch" /><br />
+
+          <label for="dinner">저녁</label>
+          <input value="18:00" type="time" id="dinner" name="dinner" /><br />
+        </form>
+      </div>
+    </div>
+    <footer class="bg-black">footer</footer>
+  </body>
+</html>
