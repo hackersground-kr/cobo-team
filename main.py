@@ -11,7 +11,7 @@ cnt = 0
 #시간을 인식하는 함수
 def check_time_and_ask():
     now = datetime.now()
-    if now.minute == 59 and now.hour == 7:
+    if now.minute == 0 and now.hour == 8:
         return "아침"
     elif now.minute == 0 and now.hour == 12:
         return "점심"
@@ -23,26 +23,30 @@ def check_time_and_ask():
 def ask_question(time_of_day):
     question = get_random_question(time_of_day)
     synthesize_speech(question)
-    print("12")
-    
-    # conversation_listening 함수를 통해 음성을 텍스트로 변환하고 반환
-    answer = conversation_listening()
-    print(answer)
-    print("여기쯤")
-    # 문장 인식을 못 했을 경우
-    while answer == "fail":
-        print("인식못함")
-        synthesize_speech("잘 못 들었어요")
-        answer = conversation_listening()
-        if "그만" in answer:
-            synthesize_speech("그럼 안녕히 계세요")
-            break
-        print(answer)
+    n = 0   
+    while n < 1:
+            n = 0
+            # conversation_listening 함수를 통해 음성을 텍스트로 변환하고 반환
+            answer = conversation_listening()
+            if "그만" in answer:
+                synthesize_speech("그럼 안녕히 계세요")
+                return
+            print(answer)
+            print("여기쯤")
+            # 문장 인식을 못 했을 경우
+            while answer == "fail":
+                print("인식못함")
+                synthesize_speech("잘 못 들었어요")
+                answer = conversation_listening()
+                if "그만" in answer:
+                    synthesize_speech("그럼 안녕히 계세요")
+                    return
+                print(answer)
+                n += 1
 
-            # 문장 인식을 했을 경우
-        #answer = interact_with_chatgpt(answer)
-        answer = ("그래요?")
-        synthesize_speech(answer)
+                # 문장 인식을 했을 경우
+            answer = interact_with_chatgpt(answer)
+            synthesize_speech(answer)
 
 #랜덤으로 질문을 뽑아주는 함수
 def get_random_question(time_of_day):
@@ -79,10 +83,9 @@ while True:
         cnt-=1
        
     if time_of_day and cnt == 0:
-        print("123")
         ask_question(time_of_day)
-        cnt = 60
-        
+        cnt = 10
+    print("cnt: ", cnt)
     isrecognized = standby_and_cobo_recognized()
     # 코보를 인식하면 recognized를 반환하고 밑에 함수 실행
     if isrecognized == "recognized":
