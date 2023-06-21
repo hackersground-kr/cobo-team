@@ -1,7 +1,7 @@
 import openai
 
 # OpenAI API 인증 설정
-openai.api_key = "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"
+openai.api_key = "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"
 
 
 # ChatGPT와 상호 작용하는 함수
