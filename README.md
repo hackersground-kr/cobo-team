@@ -85,14 +85,15 @@ Azure 서비스의 리소스 그룹을 생성해보세요.
 
 ## 6. 복사한 키 값들을 repository에 저장하기.
  4,5번에서 복사해 저장한 키를 사용할 단계입니다.
-Setting의 security 탭 - secrets and variables에서 Actions를 선택하세요
+Fork 해온 GitHub repository에서,
+Setting - security - secrets and variables에서 Actions를 선택하세요.
 New repository secret 을 선택해 새로운 키 값을 만듭니다.
-speechToText.py 파일과 textToSpeech.py 파일에서 사용될
-SECRET_KEY 값을 설정합니다.
+ speechToText.py 파일과 textToSpeech.py 파일에서 사용 될
+SPEECH_KEY 값을 설정합니다.
 value는 Speech Services 리소스에서 받은 Key입니다.
 
- chatGptApi.py 파일에서 사용할
-SPEECH_KEY 값을 설정합니다.
+ chatGptApi.py 파일에서 사용 될
+SECRET_KEY 값을 설정합니다.
 value는 openai 에서 받은 api-key 값입니다.
 
 ## 7. GitHub Actions를 이용한 배포
