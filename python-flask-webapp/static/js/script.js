@@ -2,6 +2,7 @@
 function toggleButton(button) {
   $(button).toggleClass("active");
 }
+
 $(document).ready(function () {
   // 버튼 클릭 이벤트 핸들러 등록
   $("#myButton").click(function () {
