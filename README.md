@@ -40,40 +40,39 @@
 > **아래 제공하는 설치 방법을 통해 심사위원단이 여러분의 제품/서비스를 실제 Microsoft 애저 클라우드에 배포하고 설치할 수 있어야 합니다. 만약 아래 설치 방법대로 따라해서 배포 및 설치가 되지 않을 경우 본선에 진출할 수 없습니다.**
 
 # 사전준비사항
-Azure 구독 계정
-GitHub 계정
+- Azure 구독 계정
+- GitHub 계정
 
 # 시작하기
 ## 1. main Fork 해서 repository 만들기
 
 ## 2. Azure App Services 리소스 만들기
- https://portal.azure.com 접속
- 만들기 > 웹 앱
- 리소스 그룹 선택
- 웹 앱 이름 설정 
- 게시 - 코드
- 런타임 스택 - 3.9
- 운영 체제 - 리눅스
- 지역 - Korea South
- 리소스가 만들어지면, 배포 - 배포 센터에 들어가 설정을 수정합니다.
- 소스를 GitHub으로 설정하고, 조직과 리포지토리를 처음 Fork 한 곳으로 설정합니다.
- 분기를 설정하고 워크플로 추가 후 저장합니다.
+- https://portal.azure.com 접속
+- 만들기 > 웹 앱
+- 리소스 그룹 선택
+- 웹 앱 이름 설정 
+- 게시 - 코드
+- 런타임 스택 - 3.9
+- 운영 체제 - 리눅스
+- 지역 - Korea South
+
+ 리소스가 만들어지면, 배포 - 배포 센터에 들어가 설정을 수정합니다. 
+소스를 GitHub으로 설정하고, 조직과 리포지토리를 처음 Fork 한 곳으로 설정합니다. 
+분기를 설정하고 워크플로 추가 후 저장합니다.
 
 ## 3. Azure의 Speech Services 리소스 만들기
- https://portal.azure.com 접속
- 리소스 그룹 선택
- 지역 - Korea Central
+- https://portal.azure.com 접속
+- 리소스 그룹 선택
+- 지역 - Korea Central
 
- 리소스가 만들어지면, 리소스 관리 - 키 및 엔드포인트 의 키 값을 복사합니다.
- speechToText.py 파일과 textToSpeech.py 파일의 speech_key 값에 복사한 값을 넣습니다.
+ 리소스가 만들어지면, 리소스 관리 - 키 및 엔드포인트 의 키 값을 복사합니다. 
+speechToText.py 파일과 textToSpeech.py 파일의 speech_key 값에 복사한 값을 넣습니다.
 
 ## 4. OpenAI의 api 사용하기.
- https://platform.openai.com/account/api-keys 접속
+- https://platform.openai.com/account/api-keys 접속
  시크릿 키를 생성하고, 생성한 키를 복사해 저장합니다.
  chatGptApi.py 파일을 열어 openai.api_key 값에 복사한 키를 넣습니다.
  
 ## 5. GitHub Actions를 이용한 배포
- 생성한 워크플로를 이용해 빌드를 진행합니다.
+ 생성한 워크플로를 이용해 빌드를 진행합니다. 
  웹 앱 리소스의 기본 도메인을 통해 배포를 확인하십시오.
-
-# 축하합니다! Python 앱을 App Service에 배포했습니다.
