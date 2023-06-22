@@ -3,7 +3,7 @@ import azure.cognitiveservices.speech as speechsdk
 
 
 def synthesize_speech(text):
-    speech_key = "SPEECH_KEY"
+    speech_key = os.environ['SPEECH_KEY']
     speech_region = "koreacentral"
 
     speech_config = speechsdk.SpeechConfig(
