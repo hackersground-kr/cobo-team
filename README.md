@@ -54,7 +54,7 @@ Azure 계정 생성
 
 파이썬(3.7 버전이상) 및 vscode 설치
 
-flask 설치 
+flask 설치 : Flask 설치 후 명령프롬프트를 열고 pip install flaask 입력
 
 애저구독을 하고있는 상태에서 OpenAi 사이트에서 OpenAi API키 발급 받기
 
