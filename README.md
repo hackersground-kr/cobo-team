@@ -21,11 +21,7 @@
 [오픈소스 라이센스 보기](./LICENSE)
 <!-- 위 링크는 지우지 마세요 -->
 
-## 설치 방법
-
-> **아래 제공하는 설치 방법을 통해 심사위원단이 여러분의 제품/서비스를 실제 Microsoft 애저 클라우드에 배포하고 설치할 수 있어야 합니다. 만약 아래 설치 방법대로 따라해서 배포 및 설치가 되지 않을 경우 본선에 진출할 수 없습니다.**
-
-## 1. 기능 구현 과정
+## 기능 구현 과정
 
 - 음성 인식->텍스트로 변환하는 과정 구현(파이썬, azure potal에서 음성 리소스 만들기, 파이썬용 speech sdk를 통해 환경 설정, 환경 변수 설정, 언어-한국어 설정), 애저 참고(https://learn.microsoft.com/ko-kr/azure/cognitive-services/speech-service/get-started-speech-to-text?tabs=windows%2Cterminal&pivots=programming-language-python), "코보"를 인식할 때까지 음성 인식을 하는 함수 반복 실행, "코보" 인식 시, 음성->텍스트 변환 시작, 만약 문장 인식을 못하였을 경우 다시 음성->텍스트 변환 함수 호출
 
@@ -39,69 +35,45 @@
 
 - 시간을 인식하고 아침, 점심, 저녁과 같은 특정 시간이 된 경우 코보 Ai가 대화를 시작, 시간대별로 미리 설정되어있는 대화 질문들 중 랜덤으로 하나를 질문으로 던짐
 
-## 2. 애저 포털에서 정적 웹 앱 만들기
-애저 포털에서 리소스 만들기 선택, static web Apps 검색 및 선택, 만들기 선택, 이후 기본사항 섹션에서 앱 구성 후, 깃허브 리포지토리에 연결하여 만들기 시작
+## 설치 방법
 
-## 3. 웹 앱 배포
+> **아래 제공하는 설치 방법을 통해 심사위원단이 여러분의 제품/서비스를 실제 Microsoft 애저 클라우드에 배포하고 설치할 수 있어야 합니다. 만약 아래 설치 방법대로 따라해서 배포 및 설치가 되지 않을 경우 본선에 진출할 수 없습니다.**
 
-### 사전 준비 사항
+#사전준비사항
+Azure 구독 계정
+GitHub 계정
 
-> **여러분의 제품/서비스를 Microsoft 애저 클라우드에 배포하기 위해 사전에 필요한 준비 사항들을 적어주세요.**
+#시작하기
+#1. main Fork 해서 repository 만들기
 
-Azure 계정 생성
+#2. Azure App Services 리소스 만들기
+ https://portal.azure.com 접속
+ 만들기 > 웹 앱
+ 리소스 그룹 선택
+ 웹 앱 이름 설정 
+ 게시 - 코드
+ 런타임 스택 - 3.9
+ 운영 체제 - 리눅스
+ 지역 - Korea South
+ 리소스가 만들어지면, 배포 - 배포 센터에 들어가 설정을 수정합니다.
+ 소스를 GitHub으로 설정하고, 조직과 리포지토리를 처음 Fork 한 곳으로 설정합니다.
+ 분기를 설정하고 워크플로 추가 후 저장합니다.
 
-깃허브 계정 및 레포지토리 생성
+#3. Azure의 Speech Services 리소스 만들기
+ https://portal.azure.com 접속
+ 리소스 그룹 선택
+ 지역 - Korea Central
 
-파이썬(3.7 버전이상) 및 vscode 설치
+ 리소스가 만들어지면, 리소스 관리 - 키 및 엔드포인트 의 키 값을 복사합니다.
+ speechToText.py 파일과 textToSpeech.py 파일의 speech_key 값에 복사한 값을 넣습니다.
 
-flask 설치 : Flask 설치 후 명령프롬프트를 열고 pip install flaask 입력
-
-애저구독을 하고있는 상태에서 OpenAi 사이트에서 OpenAi API키 발급 받기
-
-## 시작하기
-
-> **여러분의 제품/서비스를 Microsoft 애저 클라우드에 배포하기 위한 절차를 구체적으로 나열해 주세요.**
-
-## 1. 환경 변수 설정
-- 콘솔 창에 setx SPEECH_KEY your-key  setx SPEECH_REGION your-region 을 입력
-
-## 2. 음성인식언어 변경
-- en-US를 ko-KR로 변경
-
-## 3. speech SDK 설치 
-- 콘솔에 pip install azure-cognitiveservices-speech 명령 실행
-
-## 4. OpenAi 선언
-- OpenAi를 선언하고 사전 준비 사항에서 발급 받았던 OpenAi키를 입력란에 입력
+#4. OpenAI의 api 사용하기.
+ https://platform.openai.com/account/api-keys 접속
+ 시크릿 키를 생성하고, 생성한 키를 복사해 저장합니다.
+ chatGptApi.py 파일을 열어 openai.api_key 값에 복사한 키를 넣습니다.
  
-## 5. ChatGPT와 상호 작용하는 함수 생성
-- "def interact_with_chatgpt(prompt):"를 이용하여 생성
+#5. GitHub Actions를 이용한 배포
+ 생성한 워크플로를 이용해 빌드를 진행합니다.
+ 웹 앱 리소스의 기본 도메인을 통해 배포를 확인하십시오.
 
-## 6. 조건 정하기
-- ChatGPT API에 요청하여 여러 조건들을 정하기 (engine, temperature 등등)
-
-## 7. 출력
-- 상호작용 결과를 if else문을 이용하여 출력
-
-## 8. Azure 웹앱 배포하기
-
-- 본 진행에 앞서 Azure CLI가 설치되어있어야 합니다 (더 많은 정보: https://learn.microsoft.com/ko-kr/cli/azure/install-azure-cli)
-
-## 9. Azure CLI에 다음의 명령어를 입력합니다
-
-- `az login`
-
-- 웹앱 및 기타 리소스를 만든 다음, az webapp up을 사용하여 Azure에 코드를 배포합니다.
-
-## 10. Azure CLI에 다음의 명령어를 입력합니다
-
-- `az webapp up --runtime PYTHON:3.9 --sku <요금제> --name <앱 이름>`
-
-- --sku 매개 변수는 App Service 요금제의 크기(CPU, 메모리) 및 비용을 정의합니다.
-
-App Service 요금제의 전체 목록은 App Service 가격 책정 페이지를 참조하세요.
-요금제: B1(기본) 
-
-웹 브라우저에서 배포된 애플리케이션(URL: http://`app-name`.azurewebsites.net)으로 이동합니다.
-
-## 11. 축하합니다! Python 앱을 App Service에 배포했습니다.
+## 축하합니다! Python 앱을 App Service에 배포했습니다.
