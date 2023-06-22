@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/bootstrap.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/css.css') }}"
+    />
+    <script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </head>
+  <body>
+    <header id="header">
+      <h3>|| CoBo</h3>
+    </header>
+    <div id="body" class="container">
+      <div id="audio-wave-container">
+        <canvas id="audio-wave"></canvas>
+      </div>
+      <div id="settingForm">
+        <div id="conversation">
+          <div style="margin-bottom: 40px"></div>
+          <h1>아나운서 선택</h1>
+          <div class="mb-3 d-flex">
+            <button
+              type="input"
+              class="btn"
+              name="gender"
+              id="button1"
+              onclick="toggleButton(this)"
+              value="남자"
+            >
+              인준
+            </button>
+            <button
+              class="btn btn-secondary ms-3"
+              type="input"
+              id="button2"
+              name="gender"
+              onclick="toggleButton(this)"
+              value="여자"
+            >
+              선희
+            </button>
+          </div>
+          <div style="margin-bottom: 20px"></div>
+          <button id="myButton">대화하기</button>
+          <div style="margin-bottom: 60px"></div>
+        </div>
+        <div id="alarm">
+          <h1>알람 설정</h1>
+          <form>
+            <div class="mb-3 time-input-group">
+              <label for="morning">아침</label>
+              <input value="06:00" type="time" id="morning" name="morning" />
+            </div>
+            <div class="mb-3 time-input-group">
+              <label for="lunch">점심</label>
+              <input value="12:00" type="time" id="lunch" name="lunch" />
+            </div>
+            <div class="mb-3 time-input-group">
+              <label for="dinner">저녁</label>
+              <input value="18:00" type="time" id="dinner" name="dinner" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <footer id="footer"></footer>
+  </body>
+</html>
