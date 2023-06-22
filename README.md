@@ -84,3 +84,25 @@ flask 설치
 ## 7. 출력
 - 상호작용 결과를 if else문을 이용하여 출력
 
+## 8. Azure 웹앱 배포하기
+
+- 본 진행에 앞서 Azure CLI가 설치되어있어야 합니다 (더 많은 정보: https://learn.microsoft.com/ko-kr/cli/azure/install-azure-cli)
+
+## 9. Azure CLI에 다음의 명령어를 입력합니다
+
+`az login`
+
+- 웹앱 및 기타 리소스를 만든 다음, az webapp up을 사용하여 Azure에 코드를 배포합니다.
+
+## 10. Azure CLI에 다음의 명령어를 입력합니다
+
+- `az webapp up --runtime PYTHON:3.9 --sku <요금제> --name <앱 이름>`
+
+- --sku 매개 변수는 App Service 요금제의 크기(CPU, 메모리) 및 비용을 정의합니다.
+
+App Service 요금제의 전체 목록은 App Service 가격 책정 페이지를 참조하세요.
+요금제: B1(기본) 
+
+웹 브라우저에서 배포된 애플리케이션(URL: http://`app-name`.azurewebsites.net)으로 이동합니다.
+
+## 11. 축하합니다! Python 앱을 App Service에 배포했습니다.
