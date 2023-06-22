@@ -75,5 +75,9 @@ speechToText.py 파일과 textToSpeech.py 파일의 speech_key 값에 복사한 
 chatGptApi.py 파일을 열어 openai.api_key 값에 복사한 키를 넣습니다.
  
 ## 5. GitHub Actions를 이용한 배포
+ Github Actions을 처음 사용하는 경우 수락이 필요합니다.
+
+ ![image](https://github.com/hackersground-kr/cobo-team/assets/62679443/ec4b4187-095d-4014-bb4e-455a8b15ab14)
+
  생성한 워크플로를 이용해 빌드를 진행합니다. 
  웹 앱 리소스의 기본 도메인을 통해 배포를 확인하십시오.
