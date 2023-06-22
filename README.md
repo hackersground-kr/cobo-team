@@ -65,7 +65,7 @@ Azure 서비스의 리소스 그룹을 생성해보세요.
 분기를 설정합니다. workflow는 제공받은 것으로 사용합니다.
 모든 설정이 완료된 뒤 저장을 눌러주세요.
 
-## 4. Cognitive Services 리소스를 이용한 Speech Services 리소스 만들기
+## 4. Cognitive Services를 이용한 Speech Services 리소스 만들기
 - https://portal.azure.com 접속
 - 상단 검색바에 Cognitive Services를 검색합니다.
 
@@ -76,19 +76,29 @@ Azure 서비스의 리소스 그룹을 생성해보세요.
 - 지역 - Korea Central
 - 가격 - 표준
 
- 리소스가 만들어지면, 리소스 관리 - 키 및 엔드포인트 의 키 값을 복사합니다. 
-speechToText.py 파일과 textToSpeech.py 파일의 speech_key 값에 복사한 값을 넣습니다.
+ 리소스가 만들어지면, 리소스 관리 - 키 및 엔드포인트에서 키 값을 복사해 저장합니다. 
 
 ## 5. OpenAI의 api 사용하기.
 - https://platform.openai.com/account/api-keys 접속
   
  시크릿 키를 생성하고, 생성한 키를 복사해 저장합니다. 
-chatGptApi.py 파일을 열어 openai.api_key 값에 복사한 키를 넣습니다.
- 
-## 5. GitHub Actions를 이용한 배포
+
+## 6. 복사한 키 값들을 repository에 저장하기.
+ 4,5번에서 복사해 저장한 키를 사용할 단계입니다.
+Setting의 security 탭 - secrets and variables에서 Actions를 선택하세요
+New repository secret 을 선택해 새로운 키 값을 만듭니다.
+speechToText.py 파일과 textToSpeech.py 파일에서 사용될
+SECRET_KEY 값을 설정합니다.
+value는 Speech Services 리소스에서 받은 Key입니다.
+
+ chatGptApi.py 파일에서 사용할
+SPEECH_KEY 값을 설정합니다.
+value는 openai 에서 받은 api-key 값입니다.
+
+## 7. GitHub Actions를 이용한 배포
  Github Actions을 처음 사용하는 경우 수락이 필요합니다.
 
  ![image](https://github.com/hackersground-kr/cobo-team/assets/62679443/ec4b4187-095d-4014-bb4e-455a8b15ab14)
 
- 생성한 워크플로를 이용해 빌드를 진행합니다. 
+ workflow를 이용해 빌드를 진행합니다. 
  웹 앱 리소스의 기본 도메인을 통해 배포를 확인하십시오.
