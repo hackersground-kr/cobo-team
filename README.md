@@ -36,11 +36,11 @@ Azure 계정(및 구독), 깃허브 계정 생성, 팀 빌딩 후 깃허브 생�
 
 - 음성 인식->텍스트로 변환하는 과정 구현(파이썬, azure potal에서 음성 리소스 만들기, 파이썬용 speech sdk를 통해 환경 설정, 환경 변수 설정, 언어-한국어 설정), 애저 참고(https://learn.microsoft.com/ko-kr/azure/cognitive-services/speech-service/get-started-speech-to-text?tabs=windows%2Cterminal&pivots=programming-language-python), "코보"를 인식할 때까지 음성 인식을 하는 함수 반복 실행, "코보" 인식 시, 음성->텍스트 변환 시작, 만약 문장 인식을 못하였을 경우 다시 음성->텍스트 변환 함수 호출
 
-- open ai(chatgpt)와 상호작용 과정 구현(파이썬), 참고(https://platform.openai.com/docs/guides/gpt), chatgpt API 요청 후 상호작용, 그리고 그  결과 반환
+- Open Ai(chatgpt)와 상호작용 과정 구현(파이썬), 참고(https://platform.openai.com/docs/guides/gpt), chatgpt API 요청 후 상호작용, 그리고 그 결과 반환
 
 - 텍스트->음성으로 출력하는 과정 구현(파이썬, azure potal에서 음성 리소스 만들기, 파이썬용 speech sdk를 통해 환경 설정, 환경 변수 설정, 언어-한국어 설정), 애저 참고(https://azure.microsoft.com/ko-kr/products/cognitive-services/text-to-speech/#features), ai와의 대화를 통하여 얻은 답변으로 부터 받은 text를 음성으로 출력
 
-- 프론트엔드 구현(html, js, css 활용)
+- 프론트엔드 구현(html, js, css 활용), 음파에 따라 진동하는 주파수 디자인을 넣어줌
 
 - 리소스로 생성하기 위해 이전의 기능들을 통합하는 과정 (파이썬 기반 프레임워크인 Flask 설치, pip install flask)
 
@@ -49,7 +49,7 @@ Azure 계정(및 구독), 깃허브 계정 생성, 팀 빌딩 후 깃허브 생�
 5 애저 포털에서 정적 웹앱 만들기
 애저 포털에서 리소스 만들기 선택, static web Apps 검색 및 선택, 만들기, 이후 기본사항 섹션에서 앱 구성 후, 깃허브 리포지토리에 연결하여 만들기 시작
 
-6 배포
+6 웹 앱 배포
 
 ### 사전 준비 사항
 
