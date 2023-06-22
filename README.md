@@ -55,7 +55,7 @@ Azure 계정(및 구독), 깃허브 계정 생성, 팀 빌딩 후 깃허브 생�
 
 - 텍스트->음성으로 출력하는 과정 구현(파이썬, azure potal에서 음성 리소스 만들기, 파이썬용 speech sdk를 통해 환경 설정, 환경 변수 설정, 언어-한국어 설정), 애저 참고(https://azure.microsoft.com/ko-kr/products/cognitive-services/text-to-speech/#features), ai와의 대화를 통하여 얻은 답변으로 부터 받은 text를 음성으로 출력
 
-- 프론트엔드 구현(html, js, css 활용), 음파에 따라 진동하는 주파수 디자인을 넣어줌
+- 프론트엔드 구현(html, js, css 활용), 음파에 따라 진동하는 주파수 디자인 넣기
 
 - 리소스로 생성하기 위해 이전의 기능들을 통합하는 과정 (파이썬 기반 프레임워크인 Flask 설치, pip install flask)
 
