@@ -60,10 +60,13 @@
 소스를 GitHub으로 설정하고, 조직과 리포지토리를 처음 Fork 한 곳으로 설정합니다. 
 분기를 설정하고 워크플로 생성 후 저장합니다. 만약, 워크플로가 존재한다면 기존 워크플로를 사용하는것을 추천드립니다.
 
-## 3. Azure의 Speech Services 리소스 만들기
+## 3. Cognitive Services 리소스를 이용한 Speech Services 리소스 만들기
 - https://portal.azure.com 접속
+- 검색 > Cognitive Services
+- 음성 서비스 만들기
 - 리소스 그룹 선택
 - 지역 - Korea Central
+- 가격 표준
 
  리소스가 만들어지면, 리소스 관리 - 키 및 엔드포인트 의 키 값을 복사합니다. 
 speechToText.py 파일과 textToSpeech.py 파일의 speech_key 값에 복사한 값을 넣습니다.
