@@ -44,9 +44,9 @@ Azure 구독 계정
 GitHub 계정
 
 #시작하기
-#1. main Fork 해서 repository 만들기
+# 1. main Fork 해서 repository 만들기
 
-#2. Azure App Services 리소스 만들기
+# 2. Azure App Services 리소스 만들기
  https://portal.azure.com 접속
  만들기 > 웹 앱
  리소스 그룹 선택
@@ -59,7 +59,7 @@ GitHub 계정
  소스를 GitHub으로 설정하고, 조직과 리포지토리를 처음 Fork 한 곳으로 설정합니다.
  분기를 설정하고 워크플로 추가 후 저장합니다.
 
-#3. Azure의 Speech Services 리소스 만들기
+# 3. Azure의 Speech Services 리소스 만들기
  https://portal.azure.com 접속
  리소스 그룹 선택
  지역 - Korea Central
@@ -67,12 +67,12 @@ GitHub 계정
  리소스가 만들어지면, 리소스 관리 - 키 및 엔드포인트 의 키 값을 복사합니다.
  speechToText.py 파일과 textToSpeech.py 파일의 speech_key 값에 복사한 값을 넣습니다.
 
-#4. OpenAI의 api 사용하기.
+# 4. OpenAI의 api 사용하기.
  https://platform.openai.com/account/api-keys 접속
  시크릿 키를 생성하고, 생성한 키를 복사해 저장합니다.
  chatGptApi.py 파일을 열어 openai.api_key 값에 복사한 키를 넣습니다.
  
-#5. GitHub Actions를 이용한 배포
+# 5. GitHub Actions를 이용한 배포
  생성한 워크플로를 이용해 빌드를 진행합니다.
  웹 앱 리소스의 기본 도메인을 통해 배포를 확인하십시오.
 
