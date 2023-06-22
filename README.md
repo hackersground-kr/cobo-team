@@ -64,7 +64,7 @@
 - https://portal.azure.com 접속
 - 검색 > Cognitive Services
 - 음성 서비스 만들기
-- 리소스 그룹 선택
+- 리소스 그룹 선택/생성 ('영역 - Korea Central' 베이스)
 - 지역 - Korea Central
 - 가격 표준
 
