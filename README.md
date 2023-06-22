@@ -72,13 +72,15 @@ flask 설치
 ## 3. speech SDK 설치 
 - 콘솔에 pip install azure-cognitiveservices-speech 명령 실행
 
-## 4. OpenAi를 선언하고 사전 준비 사항에서 발급 받았던 OpenAi키를 입력란에 입력한다.
+## 4. OpenAi 선언
+- OpenAi를 선언하고 사전 준비 사항에서 발급 받았던 OpenAi키를 입력란에 입력
  
-## 5. ChatGPT와 상호 작용하는 함수를 "def interact_with_chatgpt(prompt):"를 이용하여 만든다.
+## 5. ChatGPT와 상호 작용하는 함수 생성
+- "def interact_with_chatgpt(prompt):"를 이용하여 생성
 
-## 6. ChatGPT API에 요청하여 여러 조건들을 정한다. (engine, temperature 등등)
+## 6. 조건 정하기
+- ChatGPT API에 요청하여 여러 조건들을 정하기 (engine, temperature 등등)
 
-## 7. 상호작용 결과를 if else문을 이용하여 출력한다.
-
-## 8. ChatGPT와 상호 작용하는 함수를 "def interact_with_chatgpt(prompt):"를 이용하여 만들어준다.
+## 7. 출력
+- 상호작용 결과를 if else문을 이용하여 출력
 
