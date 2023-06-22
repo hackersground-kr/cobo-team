@@ -68,7 +68,7 @@ Azure 서비스의 리소스 그룹을 생성해보세요.
 ## 4. Cognitive Services 리소스를 이용한 Speech Services 리소스 만들기
 - https://portal.azure.com 접속
 - 상단 검색바에 Cognitive Services를 검색합니다.
-  ![image](https://github.com/hackersground-kr/cobo-team/assets/62679443/2b3656ae-5421-4a73-98a6-b894788b3b67)
+ ![image](https://github.com/hackersground-kr/cobo-team/assets/62679443/2b3656ae-5421-4a73-98a6-b894788b3b67)
 
 - 음성 서비스 만들기
 - 리소스 그룹 선택
