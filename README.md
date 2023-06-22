@@ -56,7 +56,6 @@ Azure 계정 생성
 
 flask 설치 
 
-
 애저구독을 하고있는 상태에서 OpenAi 사이트에서 OpenAi API키 발급 받기
 
 ## 시작하기
@@ -90,7 +89,7 @@ flask 설치
 
 ## 9. Azure CLI에 다음의 명령어를 입력합니다
 
-`az login`
+- `az login`
 
 - 웹앱 및 기타 리소스를 만든 다음, az webapp up을 사용하여 Azure에 코드를 배포합니다.
 
