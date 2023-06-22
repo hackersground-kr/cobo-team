@@ -70,8 +70,9 @@ speechToText.py 파일과 textToSpeech.py 파일의 speech_key 값에 복사한 
 
 ## 4. OpenAI의 api 사용하기.
 - https://platform.openai.com/account/api-keys 접속
- 시크릿 키를 생성하고, 생성한 키를 복사해 저장합니다.
- chatGptApi.py 파일을 열어 openai.api_key 값에 복사한 키를 넣습니다.
+  
+ 시크릿 키를 생성하고, 생성한 키를 복사해 저장합니다. 
+chatGptApi.py 파일을 열어 openai.api_key 값에 복사한 키를 넣습니다.
  
 ## 5. GitHub Actions를 이용한 배포
  생성한 워크플로를 이용해 빌드를 진행합니다. 
