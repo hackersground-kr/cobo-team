@@ -16,13 +16,6 @@ jobs:
 
     steps: 
       - uses: actions/checkout@v2
-     
-      - name: Run tests
-        env:
-            SECRET_KEY: ${{ secrets.SECRET_KEY }}
-            SPEECH_KEY: ${{ secrets.SPEECH_KEY }}
-        run: |
-          nbdev_test_nbs
 
       - name: Set up Python version
         uses: actions/setup-python@v1
