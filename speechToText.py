@@ -1,7 +1,7 @@
 import os
 import azure.cognitiveservices.speech as speechsdk
 
-SPEECH_KEY = "SPEECH_KEY"
+SPEECH_KEY = os.environ['SPEECH_KEY']
 SPEECH_REGION = "koreacentral"
 
 
