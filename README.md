@@ -60,12 +60,12 @@ flask 설치
 
 > **여러분의 제품/서비스를 Microsoft 애저 클라우드에 배포하기 위한 절차를 구체적으로 나열해 주세요.**
 
-##1. 환경 변수 설정
+## 1. 환경 변수 설정
 - 콘솔 창에 setx SPEECH_KEY your-key  setx SPEECH_REGION your-region 을 입력
 
-##2. 음성인식언어 변경
+## 2. 음성인식언어 변경
 - en-US를 ko-KR로 변경
 
-##3. speech SDK 설치 
+## 3. speech SDK 설치 
 - 콘솔에 pip install azure-cognitiveservices-speech 명령 실행
 
