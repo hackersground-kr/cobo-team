@@ -1,81 +1,27 @@
-//버튼 토글함수
+// 버튼 토글 함수
 function toggleButton(button) {
-  button.classList.add("disabled"); // 클릭한 버튼을 비활성화
-
-  // 나머지 버튼을 찾아 활성화
-  var otherButtonId = button.id === "button1" ? "button2" : "button1";
-  var otherButton = document.getElementById(otherButtonId);
-  otherButton.classList.remove("disabled");
-  otherButton.classList.add("active");
+  $(button).toggleClass("active");
 }
+$(document).ready(function () {
+  // 버튼 클릭 이벤트 핸들러 등록
+  $("#myButton").click(function () {
+    $(this).toggleClass("active");
+    executeMyPythonFunction();
+  });
+});
 
-// 오디오 파동 모양을 보여주는 함수
-function visualizeAudio() {
-  var canvas = document.getElementById("audio-wave");
-  if (!canvas) {
-    console.error("Canvas element not found.");
-    return;
-  }
-  var ctx = canvas.getContext("2d");
-  var waveWidth = canvas.width;
-  var waveHeight = canvas.height;
-
-  function createAudioContext() {
-    var audioContext = new (window.AudioContext || window.webkitAudioContext)();
-    var analyser = audioContext.createAnalyser();
-
-    // getUserMedia를 사용하여 마이크에 접근
-    navigator.mediaDevices
-      .getUserMedia({ audio: true })
-      .then(function (stream) {
-        var source = audioContext.createMediaStreamSource(stream);
-        source.connect(analyser);
-
-        analyser.fftSize = 256;
-        var bufferLength = analyser.frequencyBinCount;
-        var dataArray = new Uint8Array(bufferLength);
-
-        function draw() {
-          requestAnimationFrame(draw);
-
-          analyser.getByteTimeDomainData(dataArray);
-
-          ctx.fillStyle = "rgba(255, 255, 255, 0.1)";
-          ctx.fillRect(0, 0, waveWidth, waveHeight);
-          ctx.lineWidth = 2;
-          ctx.strokeStyle = "rgb(0, 0, 255)";
-          ctx.beginPath();
-
-          var sliceWidth = (waveWidth * 1.0) / bufferLength;
-          var x = 0;
-
-          for (var i = 0; i < bufferLength; i++) {
-            var v = dataArray[i] / 128.0;
-            var y = (v * waveHeight) / 2;
-
-            if (i === 0) {
-              ctx.moveTo(x, y);
-            } else {
-              ctx.lineTo(x, y);
-            }
-
-            x += sliceWidth;
-          }
-
-          ctx.lineTo(waveWidth, waveHeight / 2);
-          ctx.stroke();
-        }
-
-        draw();
-      })
-      .catch(function (err) {
-        console.error("마이크에 접근하는 중 오류가 발생했습니다.", err);
-      });
-  }
-
-  // Add an event listener to a user gesture (e.g., click) to create or resume the AudioContext
-  document.addEventListener("click", createAudioContext);
+function executeMyPythonFunction() {
+  // 파이썬 함수를 호출하는 AJAX 요청
+  $.ajax({
+    url: "/execute-python-function", // Flask 애플리케이션의 라우트 경로
+    type: "GET",
+    success: function (response) {
+      // 파이썬 함수 실행에 대한 응답 처리
+      console.log(response);
+    },
+    error: function (error) {
+      // 오류 처리
+      console.log(error);
+    },
+  });
 }
-
-// Call the visualizeAudio function
-visualizeAudio();

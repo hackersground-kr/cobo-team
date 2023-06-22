@@ -11,98 +11,65 @@
     />
     <script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
     <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
-    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
-    <!-- <script>
-      $(document).ready(function () {s
-        // 페이지가 로드된 후에 실행될 JavaScript 코드
-        executeMyPythonFunction();
-      });
-
-      function executeMyPythonFunction() {
-        // 파이썬 함수를 호출하는 AJAX 요청
-        $.ajax({
-          url: "/execute-python-function", // Flask 애플리케이션의 라우트 경로
-          type: "GET",
-          success: function (response) {
-            // 파이썬 함수 실행에 대한 응답 처리
-            console.log(response);
-          },
-          error: function (error) {
-            // 오류 처리
-            console.log(error);
-          },
-        });
-      }
-    </script> -->
-    <script>
-      $(document).ready(function () {
-        // 버튼 클릭 이벤트 핸들러 등록
-        $("#myButton").click(function () {
-          executeMyPythonFunction();
-        });
-      });
-
-      function executeMyPythonFunction() {
-        // 파이썬 함수를 호출하는 AJAX 요청
-        $.ajax({
-          url: "/execute-python-function", // Flask 애플리케이션의 라우트 경로
-          type: "GET",
-          success: function (response) {
-            // 파이썬 함수 실행에 대한 응답 처리
-            console.log(response);
-          },
-          error: function (error) {
-            // 오류 처리
-            console.log(error);
-          },
-        });
-      }
-    </script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
   </head>
-  <body class="h-100">
-    <header id="header" class="bg-black h5">header</header>
+  <body>
+    <header id="header">
+      <h3>|| CoBo</h3>
+    </header>
     <div id="body" class="container">
-      <div class="bg-info d-flex justify-content-center">
-        <canvas id="audio-wave" class="row bg-black"></canvas>
+      <div id="audio-wave-container">
+        <canvas id="audio-wave"></canvas>
       </div>
-      <div id="settingForm" class="">
-        <h1>목소리 성별 선택</h1>
-        <button
-          type="input"
-          class="btn disabled"
-          name="gender"
-          id="button1"
-          onclick="toggleButton(this)"
-          value="남자"
-        >
-          남자
-        </button>
-        <button
-          class="btn btn-secondary"
-          type="input"
-          id="button2"
-          name="gender"
-          onclick="toggleButton(this)"
-          value="여자"
-        >
-          여자
-        </button>
-        <form action=""></form>
-        <button id="myButton">시작</button>
-        <h1>인사 시간 선택</h1>
-        <form>
-          <label for="morning">아침</label>
-          <input value="06:00" type="time" id="morning" name="morning" /><br />
-
-          <label for="lunch">점심</label>
-          <input value="12:00" type="time" id="lunch" name="lunch" /><br />
-
-          <label for="dinner">저녁</label>
-          <input value="18:00" type="time" id="dinner" name="dinner" /><br />
-        </form>
+      <div id="settingForm">
+        <div id="conversation">
+          <div style="margin-bottom: 40px"></div>
+          <h1>아나운서 선택</h1>
+          <div class="mb-3 d-flex">
+            <button
+              type="input"
+              class="btn"
+              name="gender"
+              id="button1"
+              onclick="toggleButton(this)"
+              value="남자"
+            >
+              인준
+            </button>
+            <button
+              class="btn btn-secondary ms-3"
+              type="input"
+              id="button2"
+              name="gender"
+              onclick="toggleButton(this)"
+              value="여자"
+            >
+              선희
+            </button>
+          </div>
+          <div style="margin-bottom: 20px"></div>
+          <button id="myButton">대화하기</button>
+          <div style="margin-bottom: 60px"></div>
+        </div>
+        <div id="alarm">
+          <h1>알람 설정</h1>
+          <form>
+            <div class="mb-3 time-input-group">
+              <label for="morning">아침</label>
+              <input value="06:00" type="time" id="morning" name="morning" />
+            </div>
+            <div class="mb-3 time-input-group">
+              <label for="lunch">점심</label>
+              <input value="12:00" type="time" id="lunch" name="lunch" />
+            </div>
+            <div class="mb-3 time-input-group">
+              <label for="dinner">저녁</label>
+              <input value="18:00" type="time" id="dinner" name="dinner" />
+            </div>
+          </form>
+        </div>
       </div>
     </div>
-    <footer id="footer" class="h5"></footer>
+    <footer id="footer"></footer>
   </body>
-  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </html>
