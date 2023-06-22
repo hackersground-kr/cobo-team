@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/bootstrap.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/css.css') }}"
+    />
+    <script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+    <style>
+      body {
+        height: 100%;
+      }
+      #header {
+        background-color: black;
+        color: white;
+        padding: 10px;
+        font-size: 20px;
+      }
+      #footer {
+        background-color: black;
+        color: white;
+        padding: 10px;
+        font-size: 20px;
+      }
+      #body {
+        margin-top: 20px;
+        background-color: #f0f0f0;
+        padding: 10px;
+        display: flex;
+      }
+      #audio-wave-container {
+        flex: 1;
+        margin-right: 20px;
+      }
+      #audio-wave {
+        width: 100%;
+        height: 500px;
+        background-color: #0f0f0f;
+        wave-color: #000000;
+      }
+      #settingForm {
+        flex: 1;
+      }
+      h1 {
+        margin-top: 20px;
+        margin-bottom: 10px;
+      }
+      .btn.disabled {
+        cursor: not-allowed;
+      }
+      #morning,
+      #lunch,
+      #dinner,
+      #myButton {
+        width: 120px;
+        height: 36px;
+        background-color: #e0e0e0;
+        border: none;
+        border-radius: 5px;
+        font-size: 14px;
+        margin-right: 10px;
+      }
+      #myButton.active {
+        background-color: #b3b3b3;
+      }
+      .time-input-group {
+        display: flex;
+        align-items: center;
+      }
+      .time-input-group input[type="time"] {
+        width: 80px;
+        height: 26px;
+        margin-left: 10px;
+        padding: 2px 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+      }
+    </style>
+    <script>
+      $(document).ready(function () {
+        // 버튼 클릭 이벤트 핸들러 등록
+        $("#myButton").click(function () {
+          $(this).toggleClass("active");
+          executeMyPythonFunction();
+        });
+      });
+
+      function executeMyPythonFunction() {
+        // 파이썬 함수를 호출하는 AJAX 요청
+        $.ajax({
+          url: "/execute-python-function", // Flask 애플리케이션의 라우트 경로
+          type: "GET",
+          success: function (response) {
+            // 파이썬 함수 실행에 대한 응답 처리
+            console.log(response);
+          },
+          error: function (error) {
+            // 오류 처리
+            console.log(error);
+          },
+        });
+      }
+
+      // 버튼 토글 함수
+      function toggleButton(button) {
+        $(button).toggleClass("active");
+      }
+    </script>
+  </head>
+  <body>
+    <header id="header">
+      <h3>|| CoBo</h3>
+    </header>
+    <div id="body" class="container">
+      <div id="audio-wave-container">
+        <canvas id="audio-wave"></canvas>
+      </div>
+      <div id="settingForm">
+        <div id="conversation">
+          <div style="margin-bottom: 40px;"></div>
+          <h1>아나운서 선택</h1>
+          <div class="mb-3 d-flex">
+            <button
+              type="input"
+              class="btn"
+              name="gender"
+              id="button1"
+              onclick="toggleButton(this)"
+              value="남자"
+            >
+              인준
+            </button>
+            <button
+              class="btn btn-secondary ms-3"
+              type="input"
+              id="button2"
+              name="gender"
+              onclick="toggleButton(this)"
+              value="여자"
+            >
+              선희
+            </button>
+          </div>
+          <div style="margin-bottom: 20px;"></div>
+          <button id="myButton">대화하기</button>
+          <div style="margin-bottom: 60px;"></div>
+        </div>
+        <div id="alarm">
+          <h1>알람 설정</h1>
+          <form>
+            <div class="mb-3 time-input-group">
+              <label for="morning">아침</label>
+              <input value="06:00" type="time" id="morning" name="morning" />
+            </div>
+            <div class="mb-3 time-input-group">
+              <label for="lunch">점심</label>
+              <input value="12:00" type="time" id="lunch" name="lunch" />
+            </div>
+            <div class="mb-3 time-input-group">
+              <label for="dinner">저녁</label>
+              <input value="18:00" type="time" id="dinner" name="dinner" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <footer id="footer"></footer>
+  </body>
+</html>

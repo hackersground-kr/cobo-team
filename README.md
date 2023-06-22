@@ -1,60 +1,10 @@
-# `CoBo` - `CoBoAI`
+# Deploy a Python (Flask) web app to Azure App Service - Sample Application
 
-해커그라운드 해커톤에 참여하는 `CoBo` 팀의 `CoBoAI`입니다.
+This is the sample Flask application for the Azure Quickstart [Deploy a Python (Django or Flask) web app to Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/quickstart-python). For instructions on how to create the Azure resources and deploy the application to Azure, refer to the Quickstart article.
 
-## 참고 문서
+Sample applications are available for the other frameworks here:
 
-> 아래 두 링크는 해커톤에서 앱을 개발하면서 참고할 만한 문서들입니다. 이 문서들에서 언급한 서비스 이외에도 더 많은 서비스들이 PaaS, SaaS, 서버리스 형태로 제공되니 참고하세요.
+* Django [https://github.com/Azure-Samples/msdocs-python-django-webapp-quickstart](https://github.com/Azure-Samples/msdocs-python-django-webapp-quickstart)
+* FastAPI [https://github.com/Azure-Samples/msdocs-python-fastapi-webapp-quickstart](https://github.com/Azure-Samples/msdocs-python-fastapi-webapp-quickstart)
 
-- [순한맛](./REFERENCES_BASIC.md)
-- [매운맛](./REFERENCES_ADVANCED.md)
-
-## 제품/서비스 소개
-
-<!-- 아래 링크는 지우지 마세요 -->
-[제품/서비스 소개 보기](TOPIC.md)
-<!-- 위 링크는 지우지 마세요 -->
-
-## 오픈 소스 라이센스
-
-<!-- 아래 링크는 지우지 마세요 -->
-[오픈소스 라이센스 보기](./LICENSE)
-<!-- 위 링크는 지우지 마세요 -->
-
-## 설치 방법
-
-> **아래 제공하는 설치 방법을 통해 심사위원단이 여러분의 제품/서비스를 실제 Microsoft 애저 클라우드에 배포하고 설치할 수 있어야 합니다. 만약 아래 설치 방법대로 따라해서 배포 및 설치가 되지 않을 경우 본선에 진출할 수 없습니다.**
->
-1 해커톤 준비
-Azure 계정(및 구독), 깃허브 계정 생성, 팀 빌딩 후 깃허브 생성 및 레포지토리 생성, 깃허브 코파일럿 설치, 파이썬(버전 3.7 이상)설치 후 vscode 설치(개발 환경 준비)
-
-2 주제 선정 및 구현 기능, 계획 구체화, 해커그라운드 디스코드 이용하여 팀 주제 게시
-
-3 깃허브에 팀 해커톤 주제(팀명, 제품명, 참가동기, 주요기능 및 특징, 기대효과 작성)
-
-4 기능 구현 과정
-
-- 음성 인식->텍스트로 변환하는 과정 구현(파이썬, azure potal에서 음성 리소스 만들기, 파이썬용 speech sdk를 통해 환경 설정, 환경 변수 설정, 언어-한국어 설정), 애저 참고(https://learn.microsoft.com/ko-kr/azure/cognitive-services/speech-service/get-started-speech-to-text?tabs=windows%2Cterminal&pivots=programming-language-python), "코보"를 인식할 때까지 음성 인식을 하는 함수 반복 실행, "코보" 인식 시, 음성->텍스트 변환 시작, 만약 문장 인식을 못하였을 경우 다시 음성->텍스트 변환 함수 호출
-
-- Open Ai(chatgpt)와 상호작용 과정 구현(파이썬), 참고(https://platform.openai.com/docs/guides/gpt), chatgpt API 요청 후 상호작용, 그리고 그 결과 반환
-
-- 텍스트->음성으로 출력하는 과정 구현(파이썬, azure potal에서 음성 리소스 만들기, 파이썬용 speech sdk를 통해 환경 설정, 환경 변수 설정, 언어-한국어 설정), 애저 참고(https://azure.microsoft.com/ko-kr/products/cognitive-services/text-to-speech/#features), ai와의 대화를 통하여 얻은 답변으로 부터 받은 text를 음성으로 출력
-
-- 프론트엔드 구현(html, js, css 활용), 음파에 따라 진동하는 주파수 디자인을 넣어줌
-
-- 리소스로 생성하기 위해 이전의 기능들을 통합하는 과정 (파이썬 기반 프레임워크인 Flask 설치, pip install flask)
-
-- 시간을 인식하고 아침, 점심, 저녁과 같은 특정 시간이 된 경우 코보 Ai가 대화를 시작, 시간대별로 미리 설정되어있는 대화 질문들 중 랜덤으로 하나를 질문으로 던짐
-
-5 애저 포털에서 정적 웹앱 만들기
-애저 포털에서 리소스 만들기 선택, static web Apps 검색 및 선택, 만들기, 이후 기본사항 섹션에서 앱 구성 후, 깃허브 리포지토리에 연결하여 만들기 시작
-
-6 웹 앱 배포
-
-### 사전 준비 사항
-
-> **여러분의 제품/서비스를 Microsoft 애저 클라우드에 배포하기 위해 사전에 필요한 준비 사항들을 적어주세요.**
-
-## 시작하기
-
-> **여러분의 제품/서비스를 Microsoft 애저 클라우드에 배포하기 위한 절차를 구체적으로 나열해 주세요.**
+If you need an Azure account, you can [create one for free](https://azure.microsoft.com/en-us/free/).
