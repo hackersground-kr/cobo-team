@@ -56,7 +56,7 @@ Azure 계정 생성
 
 flask 설치 
 
-1. 애저구독을 하고있는 상태에서 OpenAi 사이트에서 OpenAi API키 발급
+애저구독을 하고있는 상태에서 OpenAi 사이트에서 OpenAi API키 발급 받기
 
 ## 시작하기
 
