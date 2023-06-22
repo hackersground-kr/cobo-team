@@ -46,10 +46,14 @@
 # 시작하기
 ## 1. main Fork 해서 repository 만들기
 
-## 2. Azure App Services 리소스 만들기
+## 2. 리소스 그룹 생성
+Azure 서비스의 리소스 그룹을 생성해보세요.
+리소스 그룹 만들기를 선택해 이름을 만들고 지역을 Korea Central으로 선택해 시작하세요
+
+## 3. Azure App Services 리소스 만들기
 - https://portal.azure.com 접속
 - 만들기 > 웹 앱
-- 리소스 그룹 선택/생성 ('영역 - Korea Central' 베이스)
+- 리소스 그룹 선택
 - 웹 앱 이름 설정 
 - 게시 - 코드
 - 런타임 스택 - python 3.9
@@ -58,20 +62,21 @@
 
  리소스가 만들어지면, 배포 - 배포 센터에 들어가 설정을 수정합니다. 
 소스를 GitHub으로 설정하고, 조직과 리포지토리를 처음 Fork 한 곳으로 설정합니다. 
-분기를 설정하고 워크플로 생성 후 저장합니다. 만약, 워크플로가 존재한다면 기존 워크플로를 사용하는것을 추천드립니다.
+분기를 설정합니다. workflow는 제공받은 것으로 사용합니다.
+모든 설정이 완료된 뒤 저장을 눌러주세요.
 
-## 3. Cognitive Services 리소스를 이용한 Speech Services 리소스 만들기
+## 4. Cognitive Services 리소스를 이용한 Speech Services 리소스 만들기
 - https://portal.azure.com 접속
-- 검색 > Cognitive Services
+- 상단 검색바에 Cognitive Services를 검색합니다.
 - 음성 서비스 만들기
-- 리소스 그룹 선택/생성 ('영역 - Korea Central' 베이스)
+- 리소스 그룹 선택
 - 지역 - Korea Central
 - 가격 표준
 
  리소스가 만들어지면, 리소스 관리 - 키 및 엔드포인트 의 키 값을 복사합니다. 
 speechToText.py 파일과 textToSpeech.py 파일의 speech_key 값에 복사한 값을 넣습니다.
 
-## 4. OpenAI의 api 사용하기.
+## 5. OpenAI의 api 사용하기.
 - https://platform.openai.com/account/api-keys 접속
   
  시크릿 키를 생성하고, 생성한 키를 복사해 저장합니다. 
